@@ -10,6 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.set('trust proxy', 1)
 app.use(apiLimiter);
 
 if(process.env.NODE_ENV !== "production") {
