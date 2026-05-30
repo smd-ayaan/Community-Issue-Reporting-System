@@ -1,4 +1,4 @@
-///const prisma = require("./lib/prisma");
+const cors = require('cors');
 const { apiLimiter } = require("./middleware/rateLimiter");
 const express = require('express');
 const issueRoutes = require("./routes/issueRoutes");
@@ -9,6 +9,7 @@ const commentRoutes = require("./routes/commentRoutes");
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 app.use(apiLimiter);
 
 if(process.env.NODE_ENV !== "production") {
